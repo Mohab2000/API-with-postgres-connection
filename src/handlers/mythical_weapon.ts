@@ -9,6 +9,6 @@ const index = async (req: Request, res: Response) => {
 };
 
 const mythical_weapon_routes = (app: express.Application) => {
-  app.get("/products", index);
+  app.get("/mythical-weapons", index);
 };
 export default mythical_weapon_routes;
