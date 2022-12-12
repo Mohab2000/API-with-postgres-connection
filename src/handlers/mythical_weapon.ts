@@ -15,12 +15,13 @@ const create = async (req: Request, res: Response) => {
   try {
     const weapon: Weapon = {
       name: req.body.name,
+
       type: req.body.type,
       weight: req.body.weight,
     };
 
-    const newBook = await store.create(weapon);
-    res.json(newBook);
+    const newWeapon = await store.create(weapon);
+    res.json(newWeapon);
   } catch (err) {
     res.status(400);
     res.json(err);

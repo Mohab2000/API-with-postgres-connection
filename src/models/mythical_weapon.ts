@@ -33,7 +33,6 @@ export class MythicalWeaponStore {
     try {
       const sql =
         "INSERT INTO mythical_weapons (name , type, weight) VALUES($1, $2, $3) RETURNING *";
-
       const conn = await Client.connect();
 
       const result = await conn.query(sql, [

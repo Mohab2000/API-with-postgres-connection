@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
-import cors from "cors";
+// import cors from "cors";
 import mythicalWeaponsRoutes from "./handlers/mythical_weapon";
 
 const app: express.Application = express();
@@ -10,7 +10,7 @@ const corsOptions = {
   origin: "http://someotherdomain.com",
   optionSucessStatus: 200,
 };
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 // app.get("/", function (req: Request, res: Response) {
