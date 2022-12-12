@@ -8,7 +8,6 @@ const index = async (req: Request, res: Response) => {
   res.json(weapons);
 };
 const show = async (req: Request, res: Response) => {
-  // console.log(req.body.id);
   const weapon = await store.show(req.params.id);
   res.json(weapon);
 };
