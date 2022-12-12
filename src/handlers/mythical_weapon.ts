@@ -8,14 +8,14 @@ const index = async (req: Request, res: Response) => {
   res.json(weapons);
 };
 const show = async (req: Request, res: Response) => {
-  const article = await store.show(req.body.id);
-  res.json(article);
+  // console.log(req.body.id);
+  const weapon = await store.show(req.params.id);
+  res.json(weapon);
 };
 const create = async (req: Request, res: Response) => {
   try {
     const weapon: Weapon = {
       name: req.body.name,
-
       type: req.body.type,
       weight: req.body.weight,
     };
@@ -35,6 +35,6 @@ const mythicalWeaponsRoutes = (app: express.Application) => {
   app.get("/mythical-weapons", index);
   app.get("/mythical-weapons/:id", show);
   app.post("/mythical-weapons", create);
-  app.delete("/articles", destroy);
+  app.delete("/mythical-weapons", destroy);
 };
 export default mythicalWeaponsRoutes;
