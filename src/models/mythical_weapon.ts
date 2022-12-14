@@ -51,12 +51,16 @@ export class MythicalWeaponStore {
   async delete(id: string): Promise<Weapon> {
     try {
       const sql = "DELETE FROM mythical_weapons WHERE id=($1)";
+      // @ts-ignore
       const conn = await Client.connect();
+
       const result = await conn.query(sql, [id]);
+
+      const weapon = result.rows[0];
 
       conn.release();
 
-      return result.rows[0];
+      return weapon;
     } catch (err) {
       throw new Error(`Could not delete weapon ${id}. Error: ${err}`);
     }

@@ -27,13 +27,13 @@ const create = async (req: Request, res: Response) => {
   }
 };
 const destroy = async (req: Request, res: Response) => {
-  const deleted = await store.delete(req.body.id);
+  const deleted = await store.delete(req.params.id);
   res.json(deleted);
 };
 const mythicalWeaponsRoutes = (app: express.Application) => {
   app.get("/mythical-weapons", index);
   app.get("/mythical-weapons/:id", show);
   app.post("/mythical-weapons", create);
-  app.delete("/mythical-weapons", destroy);
+  app.delete("/mythical-weapons/:id", destroy);
 };
 export default mythicalWeaponsRoutes;
