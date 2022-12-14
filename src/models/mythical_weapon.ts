@@ -51,7 +51,7 @@ export class MythicalWeaponStore {
   async delete(id: string): Promise<Weapon> {
     try {
       const sql = "DELETE FROM mythical_weapons WHERE id=($1)";
-      // @ts-ignore
+
       const conn = await Client.connect();
 
       const result = await conn.query(sql, [id]);
